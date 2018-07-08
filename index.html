@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.18/angular-ui-router.js"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/restangular/1.5.1/restangular.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/service.js"></script>
+</head>
+<body ng-app="appModule" >
+<table style="font-family: Arial">
+	<tr>
+		<td colspan="2" class="header">
+			<h1>
+				Website Header
+			</h1>
+		</td>
+	</tr>
+	<tr>
+		<td class="leftMenu">
+			<a ui-sref="add" ui-sref-active="activeState">Add Students</a>
+		</td>
+		<td class="mainContent">
+			<ui-view></ui-view>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" class="footer">
+			<b>Website footer</b>
+		</td>
+	</tr>
+</table>
+
+
+</body>
+</html>

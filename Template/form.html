@@ -1,0 +1,71 @@
+<form name="studentForm" novalidate id="student-form">
+    <fieldset>
+        <table>
+            <tr>
+                <th>
+                    <label>Username :</label>
+                </th>
+                <td>
+                    <input type="text" ng-model="student.userName" name="userName" ng-pattern='/^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/' ng-required="true">
+                    <span ng-show="studentForm.userName.$touched && studentForm.userName.$error.required">This field is required.</span>
+                    <span ng-show="studentForm.userName.$touched && studentForm.userName.$error.pattern">Invalid username name. Eg: user_name</span>
+                </td>
+
+            </tr>
+            <tr>
+                <th>
+                    <label>Phone Number:</label>
+                </th>
+                <td>
+                    <input type="text" name="phoneNumber" ng-model="student.phoneNumber" ng-pattern="/^[0-9][0-9]{6,10}$/" ng-required="true">
+                    <span ng-show="studentForm.phoneNumber.$touched && studentForm.phoneNumber.$error.required">This field is required.</span>
+                    <span ng-show="studentForm.phoneNumber.$touched && studentForm.phoneNumber.$error.pattern">Invalid phone number. Eg: 98xxxxxxxx or landline number</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Full name:</label>
+                </th>
+                <td>
+                    <input type="text" name='fullName' ng-model="student.fullName" ng-pattern='/^[a-zA-Z]{1,30}[\s][a-zA-Z]{1,30}[ a-zA-Z]{0,30}$/' ng-required="true">
+                    <span ng-show="studentForm.fullName.$touched && studentForm.fullName.$error.required">This field is required.</span>
+                    <span ng-show="studentForm.fullName.$touched && studentForm.fullName.$error.pattern">Invalid full name. Eg: Ramesh Shrestha</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Email Address:</label>
+                </th>
+                <td>
+                    <input type="text" name="email" ng-model="student.email" ng-pattern='/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+|[9][8][0-9]{8}$|[9][7][0-9]{8}$|[9][7][5][0-9]{7}$|[9][8][4|6][0-9]{7}$|[9][8][5][0-9]{7}$|[9][8][0][1-2][0-9]{6}$|[9][6][0-9]{8}$|[9][8][0-1][0-9]{7}$/' required/>
+                    <span ng-show="studentForm.email.$touched && studentForm.email.$error.pattern">Invalid email pattern.</span> 
+                    <span ng-show="studentForm.email.$touched && studentForm.email.$error.required">This field is required.</span>        
+                </td>
+            </tr>
+            <!--<tr>-->
+                <!--<th>-->
+                    <!--<label>Upload Image:</label>-->
+                <!--</th>-->
+                <!--<td>-->
+                    <!--<input type="file" name="userImage" ng-model="student.userImage"/>-->
+                <!--</td>-->
+            <!--</tr>-->
+            <tr>
+                <th>
+
+                </th>
+                <td>
+                    <input type="hidden" value="INACTIVE" name="status">
+                    <input type="checkbox" name="agreement" value="on" ng-model="student.agreement" ng-required="true"> I accept terms and conditions.
+                    <span ng-show="studentForm.agreement.$touched && studentForm.agreement.$error.required">You must accept agreements.</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" ng-disabled="studentForm.$invalid"  ng-click="add()" value="Save">
+                    <button type="reset" ng-click="resetForm(studentForm)">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
